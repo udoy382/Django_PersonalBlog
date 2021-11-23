@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% load static %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="{% static  'css/contact.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="contact-container">
+        <h1>Connect With Us</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla qui harum, molestiae ducimus  <br> animi unde explicabo quo voluptatum veritatis neque!</p>
+        <div class="contact-box">
+            <div class="contact-left">
+                <h3>Sent Your Request</h3>
+                <form action="/contact" method="post">
+                    {% csrf_token %}
+                    <div class="input-row">
+                        <div class="input-grouop">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Enter Your Username">
+                        </div>
+                        <div class="input-grouop">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" placeholder="Enter Your Nmae">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-grouop">
+                            <label for="phone">Phone</label>
+                            <input type="text" name="phone" id="phone" placeholder="Enter Your Phone Number">
+                        </div>
+                        <div class="input-grouop">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" placeholder="Enter Your Email I'd">
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-grouop">
+                            <label for="address">Address</label>
+                            <input type="text" name="address" id="address" placeholder="Enter Your Address">
+                        </div>
+                        <div class="input-grouop genter-identy">
+                            <label for="radio">Gender</label><br>
+                            <span>Male:</span><input type="radio" name="radio" id="radio">
+                            <span>Female:</span><input type="radio" name="radio" id="radio">
+                            <span>Other:</span><input type="radio" name="radio" id="radio">
+                        </div>
+                    </div>
+                    <label for="textarea">Message</label>
+                    <textarea name="textarea" id="textarea" rows="5" placeholder="Type Your Message"></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+            <div class="contact-right">
+                <h3>Reach Us</h3>
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td>srudoy436@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>+8801782299436</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>Habiganj sadar Sylhet Bangladesh</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+{% endblock body %}

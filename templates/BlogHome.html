@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% load static %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/BlogHome.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ----------- Blog Section ----------- -->
+
+    <section id="blog">
+        <!-- ----------- Blog Heading -------------- -->
+        <div class="blog-heading">
+            <span>My Recent Posts</span>
+            <h3>My Blog</h3>
+        </div>
+
+        {% for blog in blogs %}
+
+        <!-- ------------ Blog Container ---------------- -->
+        <div class="blog-container">
+            <!-- -------------- Blog Box 1 ---------------- -->
+            <div class="blog-box">
+                <!-- ------------ Images ---------- -->
+                <div class="blog-img">
+                    <img src="{% static 'img/home-bg.png'%}" alt="blog">
+                </div>
+                <!-- -------- Blog Text ---------- -->
+                <div class="blog-text">
+                    <span>{{blog.time}} | {{blog.author}}</span>
+                    <a href="{{blog.slug}}" class="blog-title">{{blog.title1}}</a>
+                    <p>{{blog.content1}}</p>
+                    <a href="{{blog.slug}}">Read More...</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </section>
+</body>
+</html>
+
+{% endblock body %}

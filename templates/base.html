@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"  href="{% static  'css/base.css' %}">
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <h3 class="logo"><a href="#" class="a-tag"><span class="span-logo">PERSONAL</span>BLOG</a></h3>
+        <nav>
+            <ul class="nav-links">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/blog">Blog</a>
+                </li>
+            </ul>
+        </nav>
+        <form action="/search" method="get" class="search-form">
+            <input type="search" name="query" id="query" placeholder="Search">
+            <!-- <button type="button" class="search-btn">Search</button> -->
+        </form>
+        <a href="/contact" class="cta"><button class="contact-btn">Contact</button></a>
+    </header>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="header-after-txt">
+        <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+    {% block body %}
+    
+    {% endblock body %}
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Our Services</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="#">Affiliate Program</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Help</h4>
+                    <ul>
+                        <li>
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#">Returns</a>
+                        </li>
+                        <li>
+                            <a href="#">Donate</a>
+                        </li>
+                        <li>
+                            <a href="#">Help Others</a>
+                        </li>
+                        <li>
+                            <a href="#">Others</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Shortcuts</h4>
+                    <ul>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#">Blogs</a>
+                        </li>
+                        <li>
+                            <a href="#">More</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href=""><img src="{% static 'img/facebook.png'%}"></a>
+                        <a href=""><img src="{% static 'img/twitter.png'%}"></a>
+                        <a href=""><img src="{% static 'img/instagram.png'%}"></a>
+                        <a href=""><img src="{% static 'img/linkedin.png'%}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

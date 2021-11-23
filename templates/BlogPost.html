@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% load static %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/BlogPost.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+
+        </div>
+    <main>
+        <h2>Read Your Blog Post</h2>
+        <div class="profile-container">
+            <div class="profile">
+                <div class="img-container">
+
+                </div>
+                <div class="text">
+                    <h3>{{blog.author}}</h3>
+                    <p>{{blog.time}}</p>
+                </div>
+            </div>
+        <div class="button">
+            <a href="#" class="btn">Save Post</a>
+        </div>
+        </div>
+        <div class="container">
+            <h4>{{blog.title1}}</h4>
+            <p>{{blog.content1|safe}}</p>
+
+            <blockquote>
+                <div class="blockquote-text">
+                    <p> <h5>Note: </h5>{{blog.note}}</p>
+                </div>
+            </blockquote>
+
+            <h4>{{blog.title2}}</h4>
+            <p>{{blog.content2|safe}}</p>
+        </div>
+        <div class="tags">
+            <p>tags:</p>
+            <a href="#">{{blog.tags1}}</a>
+            <a href="#">{{blog.tags2}}</a>
+        </div>
+    </main>
+</div>
+
+    <!-- <div class="articles">
+        <div class="article-heading">
+            <h5>articles</h5>
+            <h6>recent blog</h6>
+        </div>
+        <section id="blog">
+
+            {% for blog in blogs %}
+            <div class="blog-container">
+                <div class="blog-box">
+                    <div class="blog-img">
+                        <img src="{% static 'img/home-bg.png'%}" alt="blog">
+                    </div>
+                    <div class="blog-text">
+                        <span>{{blog.time}} | {{blog.author}}</span>
+                        <a href="#" class="blog-title">{{blog.content1}</p>
+                        <a href="#">Read More...</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        <div class="button">
+            <a href="/blog" class="btn">View More...</a>
+        </div>
+    </div> -->
+</body>
+</html>
+
+{% endblock body %}

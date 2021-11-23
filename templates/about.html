@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} About Us {% endblock title %}
+{% load static %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <section class="about-section">
+        <div class="main-container">
+            <img src="{% static 'img/udoy.png' %}">
+            <div class="about-text">
+                <h1>About Us</h1>
+                <h5>Developer <span>& Designer</span></h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero, ullam aperiam. Commodi quis adipisci voluptatibus ipsam provident sed, quasi illum recusandae quia, sequi explicabo animi harum libero. Quidem amet assumenda deserunt blanditiis totam quibusdam, error illo harum repellat, fuga ad dolor fugit commodi nemo accusamus pariatur modi ab ipsam quam.</p>
+                <a href="/contact"><button type="button">Let's Talk</button></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+{% endblock body %}

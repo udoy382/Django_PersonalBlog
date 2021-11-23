@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% load static %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/search.css'%}">
+</head>
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/itemsPost.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="hero">
+    
+            </div>
+        <main>
+            <h3 style="margin-bottom: 50px;">Your Search Results:</h3>
+
+            {% if allPost|length < 1 %}
+            <p>Your search - <b>{{query}}</b> - did not match any documents.</p>
+            <h3 style="padding: 20px;"> <i>Suggestions:</i></h3>
+            <ul>
+              <li> ~ Make sure that all words are spelled correctly.</li>
+              <li> ~ Try different keywords.</li>
+              <li> ~ Try more general keywords.</li>
+              <li> ~ Try fewer keywords.</li>
+            </ul>
+            {% endif %}
+
+            {% for items in allPost %}
+            <h2></h2>
+            <div class="profile-container">
+                <div class="profile">
+                    <div class="img-container">
+    
+                    </div>
+                    <div class="text">
+                        <h3>{{items.author}}</h3>
+                        <p>{{items.time}}</p>
+                    </div>
+                </div>
+            <div class="button">
+                <a href="#" class="btn">Save Post</a>
+            </div>
+            </div>
+            <div class="container">
+                <h4>{{items.title1}}</h4>
+                <p>{{items.content1|safe}}</p>
+    
+                <blockquote>
+                    <div class="blockquote-text">
+                        <p> <h5>Note: </h5>{{items.note}}</p>
+                    </div>
+                </blockquote>
+    
+                <h4>{{items.title2}}</h4>
+                <p>{{items.content2|safe}}</p>
+            </div>
+            <div class="tags">
+                <p>tags:</p>
+                <a href="#">{{items.tags1}}</a>
+                <a href="#">{{items.tags2}}</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
+{% endblock body %}
